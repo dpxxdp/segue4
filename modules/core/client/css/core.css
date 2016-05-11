@@ -35,3 +35,44 @@ a:hover .header-profile-image {
 .has-error .help-inline.error-text {
   display: inline;
 }
+
+.jumbo-background {
+	background: no-repeat center center fixed;
+	background-size: 100% auto;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	/*background-size: cover;*/
+}
+
+.jumbo-header {
+  margin-top: 7%;
+  height: 400px;
+}
+
+.jumbo-full {
+  height: 80%
+}
+
+.jumbo-segment {
+  height: 10px;
+}
+
+.jumbo-footer {
+  height: 200px;
+}
+
+.jumbo-text {
+	text-align: center;
+	color: #000000;
+	opacity: 1;
+}
+
+.fog {
+	background-color: white;
+	background-color:rgba(256, 256, 256, 0.7);
+}
+
+.poem {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
