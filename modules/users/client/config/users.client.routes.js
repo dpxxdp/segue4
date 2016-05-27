@@ -33,14 +33,17 @@ angular.module('users').config(['$stateProvider',
         abstract: true,
         url: '/authentication',
         templateUrl: 'modules/users/client/views/authentication/authentication.client.view.html'
+        //templateUrl: 'modules/core/client/views/home.client.view.html'
       })
       .state('authentication.signup', {
         url: '/signup',
         templateUrl: 'modules/users/client/views/authentication/signup.client.view.html'
+        //templateUrl: 'modules/core/client/views/home.client.view.html'
       })
       .state('authentication.signin', {
         url: '/signin?err',
-        templateUrl: 'modules/users/client/views/authentication/signin.client.view.html'
+        templateUrl: 'modules/core/client/views/home.client.view.html'
+        //templateUrl: 'modules/users/client/views/authentication/signin.client.view.html'
       })
       .state('password', {
         abstract: true,

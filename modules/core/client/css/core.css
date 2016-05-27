@@ -54,6 +54,10 @@ a:hover .header-profile-image {
   height: 80%
 }
 
+.jumbo-chat {
+  height: 90%
+}
+
 .jumbo-segment {
   height: 10px;
 }
