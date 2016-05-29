@@ -1,24 +1,25 @@
 <section ng-controller="ArticlesController" ng-init="find()">
+  <div class="pull-right">
+    <a class="btn btn-success" ui-sref="articles.create()">
+      <i class="glyphicon glyphicon-plus"></i>
+    </a>
+  </div>
   <div class="page-header">
     <h1>Ship Log</h1>
   </div>
-  <div class="jumbotron jumbo-background jumbo-full" ng-style="{'background-image':'url(modules/core/client/img/dust.jpg)'}">
-    <div class="panel">
-      <div class="list-group">
-        <a ng-repeat="article in articles" ui-sref="articles.view({articleId: article._id})" class="list-group-item">
-          <small class="list-group-item-text">
+  <div class="list-group">
+    <a ng-repeat="article in articles" ui-sref="articles.view({articleId: article._id})" class="list-group-item">
+      <small class="list-group-item-text">
         Posted on
         <span ng-bind="article.created | date:'mediumDate'"></span>
         by
         <span ng-bind="article.user.displayName"></span>
       </small>
-          <h4 class="list-group-item-heading" ng-bind="article.title"></h4>
-          <p class="list-group-item-text" ng-bind="article.content"></p>
-        </a>
-      </div>
-      <div class="alert alert-warning text-center" ng-if="articles.$resolved && !articles.length">
-        No entries yet. <a ui-sref="articles.create">Add one</a>.
-      </div>
-    </div>
+      <h4 class="list-group-item-heading" ng-bind="article.title"></h4>
+      <p class="list-group-item-text" ng-bind="article.content.substr(0,500) + (article.content.length > 500 ? '...' : '')"></p>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="articles.$resolved && !articles.length">
+    No entries yet. <a ui-sref="articles.create">Add one</a>.
   </div>
 </section>

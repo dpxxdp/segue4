@@ -1,0 +1,25 @@
+<section>
+  <div class="pull-right">
+    <a class="btn btn-success" ui-sref="broadcasts.create()">
+      <i class="glyphicon glyphicon-plus"></i>
+    </a>
+  </div>
+  <div class="page-header">
+    <h1>Broadcasts</h1>
+  </div>
+  <div class="jumbotron jumbo-background jumbo-full" ng-style="{'background-image':'url(modules/core/client/img/dust.jpg)'}">
+    <div class="panel">
+      <div class="list-group">
+        <a data-ng-repeat="broadcast in vm.broadcasts" data-ui-sref="broadcasts.view({ broadcastId: broadcast._id })" class="list-group-item">
+          <small class="list-group-item-text">
+        <span data-ng-bind="broadcast.created"></span>
+      </small>
+          <h4 class="list-group-item-heading" data-ng-bind="broadcast.name"></h4>
+        </a>
+      </div>
+      <div class="alert alert-warning text-center" data-ng-if="vm.broadcasts.$resolved && !vm.broadcasts.length">
+        No Broadcasts yet, why don't you <a data-ui-sref="broadcasts.create">blast one out</a>?
+      </div>
+    </div>
+  </div>
+</section>

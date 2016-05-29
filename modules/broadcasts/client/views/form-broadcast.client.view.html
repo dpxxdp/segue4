@@ -1,0 +1,33 @@
+<section>
+  <div class="jumbotron jumbo-background jumbo-chat" ng-style="{'background-image':'url(modules/core/client/img/dust.jpg)'}">
+    <div class="row">
+      <div class="col-xs-12 col-md-offset-2 col-md-8">
+        <div class="panel fog">
+          <div class="panel-body">
+            <div class="col-md-12">
+              <form name="vm.form.broadcastForm" class="form-horizontal" ng-submit="vm.save(vm.form.broadcastForm.$valid)" novalidate>
+                <fieldset>
+                  <div class="form-group" show-errors>
+                    <input name="name" type="text" ng-model="vm.broadcast.name" id="name" class="form-control" placeholder="Subject" required>
+                    <div ng-messages="vm.form.broadcastForm.name.$error" role="alert">
+                      <p class="help-block error-text" ng-message="required">Subject required.</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <textarea name="content" ng-model="vm.broadcast.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+                  </div>
+                  <div class="form-group text-center">
+                    <button type="submit" class="btn btn-default">Broadcast</button>
+                  </div>
+                  <div ng-show="vm.error" class="text-danger">
+                    <strong ng-bind="vm.error"></strong>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

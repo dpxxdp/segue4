@@ -38,13 +38,6 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $scope.used_credentials = {};
       $scope.used_credentials.username = form;
       $scope.used_credentials.password = $scope.credentials[form].password;
-      console.log("Signing in u: " + $scope.used_credentials.username);
-      console.log("Signing in p: " + $scope.used_credentials.password);
-      // if (!isValid) {
-      //   $scope.$broadcast('show-errors-check-validity', form);
-
-      //   return false;
-      // }
 
       $http.post('/api/auth/signin', $scope.used_credentials).success(function (response) {
         // If successful we assign the response to the global user model
@@ -53,8 +46,8 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         // And redirect to the previous or home page
         $state.go($state.previous.state.name || 'entry', $state.previous.params);
       }).error(function (response) {
-        $scope.credentials[form].password = "";
-        $scope.error = $sce.trustAsHtml("a " + form + " you may be. <i>the</i> " + form + " you are not.");
+        $scope.credentials[form].password = '';
+        $scope.error = $sce.trustAsHtml('a ' + form + ' you may be. <i>the</i> ' + form + ' you are not.');
       });
     };
 

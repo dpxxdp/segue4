@@ -18,7 +18,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       templateUrl: 'modules/core/client/views/home.client.view.html'
     })
     .state('entry', {
-      url: '/',
+      url: '/compressedbit',
       templateUrl: 'modules/core/client/views/entry.client.view.html',
       data: {
         roles: ['user', 'admin']

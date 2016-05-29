@@ -1,0 +1,27 @@
+<section>
+  <div class="jumbotron jumbo-background jumbo-chat" ng-style="{'background-image':'url(modules/core/client/img/dust.jpg)'}">
+    <div class="row">
+      <div class="col-xs-12 col-md-offset-1 col-md-10">
+        <div class="panel fog">
+          <div class="panel-body">
+            <small>
+              <em class="text-muted">
+                <span data-ng-bind="vm.broadcast.created"></span>
+              </em>
+            </small>
+            <div class="pull-right">
+              <a class="btn btn-info" ui-sref="broadcasts.list()">
+                <i class="glyphicon glyphicon-arrow-up"></i>
+              </a>
+            </div>
+            <div class="page-header">
+              <h1 data-ng-bind="vm.broadcast.name"></h1>
+            </div>
+            <p class="lead" data-ng-bind="vm.broadcast.content"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>

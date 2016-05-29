@@ -16,11 +16,12 @@ app/tests/coverage/
 .idea/
 coverage/
 
-# MEAN.js app and assets
+# app and assets
 # ======================
 public/dist/
 uploads
 modules/users/client/img/profile/uploads
+modules/pieces/client/img/uploads
 config/env/local.js
 *.pem
 

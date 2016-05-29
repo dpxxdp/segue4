@@ -1,10 +1,41 @@
 <section ng-controller="HomeController">
-  <div class="jumbotron text-center jumbo-background jumbo-header jumbo-text" ng-style="{'background-image':'url(modules/core/client/img/dust.jpg)'}">
-    <div class="panel fog">
+  <div class="jumbotron text-center jumbo-top jumbo-background" ng-style="{'background-image':'url(modules/core/client/img/dust.jpg)'}">
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
       <div class="row">
-        <p class="lead text-center"><i>when</i> the fuck is this place?</p>
+        <div class="col-xs-12 col-md-offset-4 col-md-6">
+          <p class="lead poem"><br>1 I think this may be compressed a bit
+            <br>2 But don't be depressed and quit
+            <br>3 There's much to unfold and indulge
+            <br>4 There is a man who's been revealed
+            <br>5 Who laughs at those who test his steel
+            <br>6 As we race the rabbit to the hole
+            <br>7 Whoops slipped, and fold
+            <br>8 Who waxes & wanes on wave that are real
+            <br>9 But wait not for the lovely gate
+            <br>10 And bark at those who take the meal
+            <br>11 Is this real?
+            <br>12 Display what it has & don't be late
+            <br>13 Or you'll be trapped in an instigate
+            <br>14 Wait
+            <br>15 Or miss the train that comes only once in a while
+            <br>16 Erase the fate not
+            <br>17 Misplaced knot
+            <br>18 Despite what you think you know & defy
+            <br>19 This is wild
+            <br>20 Keep going child
+            <br>21 Read 3, 4 and 5
+          </p>
+        </div>
+        <div class="col-md-3">
+
+        </div>
       </div>
     </div>
+  </div>
+
+  <div class="jumbotron text-center jumbo-segment jumbo-background" ng-style="{'background-image':'url(modules/core/client/img/dust.jpg)'}">
   </div>
   <div class="panel panel-default">
     <div class="panel-body">
@@ -13,10 +44,11 @@
 
         </div>
         <div class="col-md-6 text-center">
-          <p class="lead poem">Try as I might to fix my gaze
-            <br>Upon that dark forbidden maze
-            <br>The end at which <i>presents</i> amaze
-            <br>The good gifts granted in leaping fits
+          <p class="lead poem">
+            <br>Words of a poet
+            <br>Muddled by a tinker
+            <br>What says the captain,
+            <br>the elder, the piper, the thinker?
           </p>
         </div>
         <div class="col-md-3">
@@ -34,8 +66,32 @@
         </div>
       </div>-->
       <br>
-
+      <div class="row">
+        <form name="entryForm" class="form-horizontal" ng-submit="submitEntry();" required>
+          <fieldset>
+            <div class="row">
+              <div class="col-xs-12 col-md-offset-5 col-md-2">
+                <div class="form-group" show-errors>
+                  <input name="passcode" type="text" ng-model="entry.passcode" id="passcode" class="form-control" placeholder="- - - - - - - -">
+                </div>
+              </div>
+              <div class="col-xs-12 col-md-1">
+                <div class="form-group">
+                  <button type="submit" class="btn btn-default">Launch</button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div ng-show="entry.error" class="text-danger">
+                <strong ng-bind="entry.error"></strong>
+              </div>
+              <div ng-show="entry.success" class="text-success">
+                <strong ng-bind="entry.success"></strong>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
     </div>
   </div>
-  <br><small>Thanks for all the fish</small>
 </section>
