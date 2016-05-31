@@ -1,0 +1,25 @@
+<section>
+  <div class="pull-right">
+    <a class="btn btn-success" ui-sref="scrambles.create()">
+      <i class="glyphicon glyphicon-plus"></i>
+    </a>
+  </div>
+  <div class="page-header">
+    <h1>Messages</h1>
+  </div>
+  <div class="list-group">
+    <a data-ng-repeat="scramble in vm.scrambles" data-ui-sref="scrambles.view({ scrambleId: scramble._id })" class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span data-ng-bind="scramble.created | date:'mediumDate'"></span>
+        by
+        <span data-ng-if="scramble.user" data-ng-bind="scramble.user.displayName"></span>
+        <span data-ng-if="!scramble.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading wordwrap" data-ng-bind="scramble.content.substr(0,200) + (scramble.content.length > 200 ? '...' : '')"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" data-ng-if="vm.scrambles.$resolved && !vm.scrambles.length">
+    No messages yet, why don't you <a data-ui-sref="scrambles.create">scramble something</a>?
+  </div>
+</section>

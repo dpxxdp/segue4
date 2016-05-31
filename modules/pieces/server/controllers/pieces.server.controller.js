@@ -102,6 +102,7 @@ exports.update = function (req, res) {
  */
 exports.delete = function (req, res) {
   var piece = req.piece;
+  //TODO: remove piece.imageURL from filesystem
 
   piece.remove(function (err) {
     if (err) {

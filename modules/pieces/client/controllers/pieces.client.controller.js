@@ -40,7 +40,23 @@
 
     $scope.uploader.onSuccessItem = function (fileItem, response, status, headers) {
       $scope.success = true;
+      $scope.user = Authentication.user = response.user;
       $scope.cancelUpload();
+      // vm.piece = piece;
+      // vm.piece.id = response._id;
+      // vm.piece.imageURL = response.imageURL;
+      // vm.piece.user = response.user;
+      
+      // console.log('User', $scope.user);
+      // console.log('Piece', vm.piece);
+      // console.log('Response', response);
+      // vm.piece.$update(function (res) {
+      //   $state.go('pieces.view', {
+      //     pieceId: res._id
+      //   });
+      // }, function (res) {
+      //   vm.error = res.data.message;
+      // });
       $state.go('pieces.view', {
         pieceId: response._id
       });
@@ -48,7 +64,7 @@
 
     $scope.uploader.onErrorItem = function (fileItem, response, status, headers) {
       $scope.cancelUpload();
-      vm.error = res.data.message;
+      vm.error = response.data.message;
     };
 
     $scope.uploadProfilePicture = function () {
@@ -68,13 +84,13 @@
     vm.remove = remove;
     vm.save = save;
     vm.addPieceTitle = false;
-    
-    $scope.togglePieceTitle = function() {
-        if(vm.addPieceTitle) {
-          vm.piece.name = '';
-        }
-        vm.addPieceTitle = !vm.addPieceTitle;
-    }
+
+    $scope.togglePieceTitle = function () {
+      if (vm.addPieceTitle) {
+        vm.piece.name = '';
+      }
+      vm.addPieceTitle = !vm.addPieceTitle;
+    };
 
     function remove() {
       if (confirm('Are you sure you want to delete?')) {

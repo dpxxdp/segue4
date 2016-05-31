@@ -1,0 +1,64 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.scramble._id ? 'Edit Message' : 'New Message'}}</h1>
+    <small>{{vm.scramble._id ? 'You are in Edit mode which will update (overwrite) the Message you have chosen.  You can update the key or the message or both, but for security reasons I will not pass the plaintext of your message between pages.  The best you can do is go back to the previous page and copy the plaintext into this form again.  Note that copying the plaintext will put it on your machine\'s clipboard which may or may not be secure.' : ''}}</small>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.scrambleForm" class="form-horizontal" ng-submit="vm.save(vm.form.scrambleForm.$valid)" novalidate>
+      <fieldset>
+        <div ng-show="!vm.secureForPost" class="form-group">
+          <textarea name="pt" ng-keypress="fe();" type="text" ng-model="vm.pt" id="pt" class="form-control"
+            placeholder="Content" rows="10" required></textarea>
+          <div ng-messages="vm.form.scrambleForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Content required.</p>
+          </div>
+        </div>
+        <!--<div class="form-group">
+          <button type="button" class="btn btn-success" ng-click="encrypt();">Encrypt</button>
+        </div>-->
+        <div class="well wordwrap">
+          {{vm.scramble.content}}
+        </div>
+        <div ng-show="vm.secureForPost">
+          <div class="form-group">
+            <button type="submit" class="btn btn-success">{{vm.scramble._id ? 'Update Encrypted Message' : 'Post Encrypted Message'}}</button>
+          </div>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+        <div ng-show="!vm.setKeyDialog && !vm.secureForPost" class="form-group">
+          <button type="button" ng-click="openSetKeyDialog()" class="btn btn-danger">Set Key</button>
+        </div>
+        <div ng-show="vm.setKeyDialog && !vm.secureForPost">
+          <div class="well">
+            <div class="row">
+              <div class="col-xs-8 col-md-offset-1 col-md-9">
+                <input name="k" type="text" ng-model="vm.k" id="k" class="form-control" placeholder="Key" required>
+              </div>
+              <div class="col-xs-2 col-md-2">
+                <div class="form-group">
+                  <button type="button" ng-click="eAndS()" class="btn btn-danger">Encrypt</button>
+                </div>
+              </div>
+            </div>
+            <div class="well">
+              <span class="glyphicon glyphicon-exclamation-sign"></span>
+              <small>This message can only be read by those who can guess or know this key.
+            <br>Encryption happens in the browser and the keys are not stored on the server.  You will not be able to view this message if you forget the key.
+            <br>
+            <br><h5>For top notch security</h5>Should our server be compromised, the encrypted message may be unencrypted in hours or less using cheap computing power if you do not use a <b>secure key</b>.
+            <br>An example of a <b>secure key</b> is 12+ <b>random</b> words, seperated by spaces.
+            <br><b>Random</b> words are not words that you can think up or see on objects around you (then you end up with common words and you need many more than 12).  
+            <br>An example of <b>random</b> word selection would be taking out a full dictionary (not a book, for the same reasons!), flipping to pages, blindly pointing to words, and using the first 12 whether you know what they mean or not.
+            <br>Do not write down your key on anything resembling a machine.  Keeping it in your brain is best, but pen and paper is almost just as good. In that case, always keep the paper out of view of cameras.
+            <br>
+            <br>If the hardware or the browser you are using has been compromised, there is nothing I can do to help you.  But this is far better than nothing... this is about as good as it's going to get.
+            </small>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
