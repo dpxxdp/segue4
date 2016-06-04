@@ -1,14 +1,14 @@
 <section ng-controller="AuthenticationController">
     <div class="row">
-        <div ng-repeat="name in ['poet', 'playwrite', 'thinker', 'tinker', 'elder', 'captain']">
+        <div ng-repeat="name in ['poet', 'playwright', 'thinker', 'tinker', 'elder', 'captain']">
             <div class="col-md-2">
                 <div class="panel panel-default">
                     <!--<div class="panel-heading">
               <h2>the<br><strong>captain</strong></h2>
             </div>-->
                     <div class="panel-body">
-                        <div class="">
-                            <h2>{{!authentication.user._id ? 'the' : 'a'}}<br><strong>{{name}}</strong></h2>
+                        <div class="lead">
+                            <p>{{!authentication.user._id ? 'the' : 'a'}}<br><strong>{{name}}</strong></p>
                         </div>
                         <div ng-show="!authentication.user._id">
                             <hr>
@@ -23,14 +23,14 @@
                                             <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-bishop"></span></button>
                                         </div>
                                     </div>
-                                    <div ng-show="{{name}} == playwrite">
+                                    <div ng-show="{{name}} == playwright">
                                         <div class="text-center form-group">
-                                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-film"></span></button>
+                                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-music"></span></button>
                                         </div>
                                     </div>
                                     <div ng-show="{{name}} == thinker">
                                         <div class="text-center form-group">
-                                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></button>
+                                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button>
                                         </div>
                                     </div>
                                     <div ng-show="{{name}} == tinker">
